@@ -7,6 +7,13 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 
 export default function HomePage() {
+  const scrollToSection = (elementId: string) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-black text-white">
       <header className="w-full py-4 px-6 flex items-center justify-between bg-black fixed top-0 left-0 right-0 z-50">
@@ -20,11 +27,11 @@ export default function HomePage() {
           />
         </Link>
         <nav className="hidden md:flex space-x-6">
-          <a onClick={() => document.getElementById('home').scrollIntoView({ behavior: 'smooth' })} className="hover:text-gray-300 cursor-pointer">Home</a>
-          <a onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })} className="hover:text-gray-300 cursor-pointer">About</a>
-          <a onClick={() => document.getElementById('services').scrollIntoView({ behavior: 'smooth' })} className="hover:text-gray-300 cursor-pointer">Services</a>
-          <a onClick={() => document.getElementById('blog').scrollIntoView({ behavior: 'smooth' })} className="hover:text-gray-300 cursor-pointer">Blog</a>
-          <a onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })} className="hover:text-gray-300 cursor-pointer">Contact</a>
+          <a onClick={() => scrollToSection('home')} className="hover:text-gray-300 cursor-pointer">Home</a>
+          <a onClick={() => scrollToSection('about')} className="hover:text-gray-300 cursor-pointer">About</a>
+          <a onClick={() => scrollToSection('services')} className="hover:text-gray-300 cursor-pointer">Services</a>
+          <a onClick={() => scrollToSection('blog')} className="hover:text-gray-300 cursor-pointer">Blog</a>
+          <a onClick={() => scrollToSection('contact')} className="hover:text-gray-300 cursor-pointer">Contact</a>
         </nav>
       </header>
 
@@ -37,7 +44,7 @@ export default function HomePage() {
             Leading the industry with comprehensive security services and proven expertise.
           </p>
           <div className="flex justify-center">
-            <Button size="lg" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
+            <Button size="lg" onClick={() => scrollToSection('contact')}>
               Contact Now
             </Button>
           </div>
@@ -92,7 +99,7 @@ export default function HomePage() {
             {[
               {
                 image: "/testimonial1.jpg",
-                quote: "Haspath expertise in blockchain security is unmatched. His work has been invaluable for our project\'s security.",
+                quote: "Haspath expertise in blockchain security is unmatched. His work has been invaluable for our project's security.",
                 name: "Mark Nelson",
                 title: "CEO of Trebutin Inc."
               },
@@ -104,7 +111,7 @@ export default function HomePage() {
               },
               {
                 image: "/testimonial3.jpg",
-                quote: "Denis\'s smart contract auditing expertise helped us identify and fix critical vulnerabilities before launch.",
+                quote: "Denis's smart contract auditing expertise helped us identify and fix critical vulnerabilities before launch.",
                 name: "Nick Vines",
                 title: "Founder of DeFi Mamba"
               }
